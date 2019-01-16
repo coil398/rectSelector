@@ -6,12 +6,12 @@ import os
 
 class RectSelector:
 
-    def __init__(self, image_list, target_dir):
+    def __init__(self, _dir, image_list, target_dir):
         # select a directory loaded.
-        self._create_rect_selector()
+        self._create_rect_selector(_dir, image_list, target_dir)
 
-    def _create_rect_selector(self):
-        self._window = Window()
+    def _create_rect_selector(self, _dir, image_list, target_dir):
+        self._window = Window(_dir, image_list, target_dir)
 
 
 def main():
@@ -21,7 +21,7 @@ def main():
     target_dir = sys.argv[2]
     if not os.path.exists(target_dir):
         os.makedirs(target_dir)
-    RectSelector(image_list, target_dir)
+    RectSelector(_dir, image_list, target_dir)
 
 
 if __name__ == '__main__':
